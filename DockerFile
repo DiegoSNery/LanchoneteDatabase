@@ -1,0 +1,11 @@
+# Use a imagem oficial do MySQL
+FROM mysql:latest
+
+# Configuração de variáveis de ambiente para o MySQL
+ENV MYSQL_ROOT_PASSWORD=root_password
+ENV MYSQL_DATABASE=lanchonete
+ENV MYSQL_USER=lanchonete
+ENV MYSQL_PASSWORD=123456
+
+# Copia scripts SQL para a pasta /docker-entrypoint-initdb.d/ para serem executados durante a inicialização
+COPY ./scripts/ /docker-entrypoint-initdb.d/
